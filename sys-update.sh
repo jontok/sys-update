@@ -1,5 +1,10 @@
 #!/bin/bash
-
+# Colors
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+NC='\033[0m' # No Color
 # Long ARGS
 fetch="--fetch"
 update="--update"
@@ -12,14 +17,14 @@ short_help="-h"
 
 # Help
 display_help(){
-    echo -e "Desciption:"
+    echo -e "${ORANGE}Desciption:"
     echo -e "   Wrapper script for apt/nala system upgrades.\n"
     echo -e "Usage:"
     echo -e "   sys-update [option]\n"
     echo -e "Options:"
     echo -e "   -h, --help     Shows Available Options"
     echo -e "   -f, --fetch    Will fetch all upgradable packages"
-    echo -e "   -u, --update   Will update repositories"
+    echo -e "   -u, --update   Will update repositories${NC}"
 }
 
 # Package Manager Switch
@@ -27,10 +32,10 @@ pkg_mng_switch(){
     if [ -x "$(command -v nala)" ]
     then
         package_manager="nala"
-        echo -e "Using $(command -v nala)\n"
+        echo -e "${BLUE}Using $(command -v nala)${NC}\n"
     else
         package_manager="apt"
-        echo -e "Using $(command -v apt)!\n"
+        echo -e "${BLUE}Using $(command -v apt)!${NC}\n"
     fi
 }
 
