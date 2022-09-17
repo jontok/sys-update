@@ -1,6 +1,6 @@
 # sys-update
 
-Wrapper script for apt/nala system upgrades
+Wrapper script for apt/[nala](https://gitlab.com/volian/nala) system upgrades
 
 Update your Debian/Ubuntu based system with a short and easy command
 
