@@ -7,7 +7,7 @@ Update your Debian/Ubuntu based system with a short and easy command
 ## Install
 Please check the [install.sh](install.sh) and [sys-update.sh](sys-update.sh) before installing.
 ```bash
-git clone 
+git clone https://github.com/jontok/sys-update.git
 
 cd sys-update
 
