@@ -1,0 +1,10 @@
+-s dir
+--name sys-update
+--license agpl3
+--version 0.0.1
+--architecture amd64
+--depends bash
+--description "Sys-update tool for apt and nala (https://gitlab.com/volian/nala)"
+--url "https://tokmaji.de/includes/sys-update.html"
+--maintainer "jontok info@tokmaji.de"
+sys-update=/usr/bin/sys-update
