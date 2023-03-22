@@ -24,16 +24,17 @@ jobs:
       - name: Build DEB package
         run: |
           source .env && cp sys-update.sh sys-update && fpm -t deb -p sys-update_${VERSION}_amd64.deb
-
+      - name: Set ENV Vars
+        id: dotenv
+        uses: ./.github/actions/dotenv-action
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: ${{ $VERSION }}
         with:
-          tag_name: $VERSION
-          release_name: $VERSION
+          tag_name: ${{ steps.dotenv.outputs.version }}
+          release_name: ${{ steps.dotenv.outputs.version }}
           draft: false
           prerelease: false
 
@@ -43,6 +44,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./sys-update_$VERSION_amd64.deb
-          asset_name: sys-update_$VERSION_amd64.deb
+          asset_path: ./sys-update_${{ steps.dotenv.outputs.version }}_amd64.deb
+          asset_name: sys-update_${{ steps.dotenv.outputs.version }}_amd64.deb
           asset_content_type: application/x-debian-package
