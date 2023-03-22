@@ -24,7 +24,7 @@ jobs:
       - name: Build DEB package
         run: |
           fpm \
-          -s dir -t deb \
+          -s ./ -t deb \
           -p sys-update-0.0.1.deb \
           --name sys-update \
           --license agpl3 \
