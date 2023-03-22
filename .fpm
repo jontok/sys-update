@@ -1,5 +1,5 @@
 -s dir
---name sys-update
+--name sys-update.sh
 --license agpl3
 --version 0.0.1
 --architecture amd64
