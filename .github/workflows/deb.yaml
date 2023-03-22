@@ -23,7 +23,7 @@ jobs:
 
       - name: Build DEB package
         run: |
-          mv sys-update.sh sys-update && fpm -t deb -p sys-update-0.0.1_amd64.deb
+          mv sys-update.sh sys-update && fpm -t deb -p sys-update_0.0.1_amd64.deb
 
       - name: Create Release
         id: create_release
