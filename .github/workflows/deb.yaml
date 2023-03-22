@@ -23,7 +23,7 @@ jobs:
 
       - name: Build DEB package
         run: |
-          source .env && cp sys-update.sh sys-update && fpm -t deb -p sys-update_$VERSION_amd64.deb
+          source .env && cp sys-update.sh sys-update && fpm -t deb -p sys-update_${VERSION}_amd64.deb
 
       - name: Create Release
         id: create_release
@@ -31,8 +31,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v$VERSION
-          release_name: Release v$VERSION
+          tag_name: ${VERSION}
+          release_name: ${VERSION}
           draft: false
           prerelease: false
 
